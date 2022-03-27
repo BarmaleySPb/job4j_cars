@@ -77,6 +77,13 @@ public class HbmStore implements Store {
     }
 
     @Override
+    public Driver findDriverByName(String name) {
+        return (Driver) this.tx(session -> session.createQuery("from Driver i where i.name = :key")
+                .setParameter("key", name)
+                .uniqueResult());
+    }
+
+    @Override
     public Engine findEngineById(int id) {
         return this.tx(session -> session.get(Engine.class, id));
     }

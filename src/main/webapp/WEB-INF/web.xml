@@ -21,6 +21,10 @@
     <servlet-name>AddAdvertServlet</servlet-name>
     <servlet-class>cars.servlets.AddAdvertServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AllAdvertsServlet</servlet-name>
+    <servlet-class>cars.servlets.AllAdvertsServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>AuthServlet</servlet-name>
@@ -37,6 +41,10 @@
   <servlet-mapping>
     <servlet-name>AddAdvertServlet</servlet-name>
     <url-pattern>/addadvert</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AllAdvertsServlet</servlet-name>
+    <url-pattern>/adverts</url-pattern>
   </servlet-mapping>
 
 </web-app>

@@ -21,7 +21,8 @@ public class AuthServlet extends HttpServlet {
         if (driverInDbase != null && driverInDbase.getPassword().equals(password)) {
             HttpSession sc = req.getSession();
             sc.setAttribute("user", driverInDbase);
-            resp.sendRedirect(req.getContextPath() + "/index.jsp");
+            //req.setAttribute("adverts", HbmStore.instOf().findAllAdvert());
+            resp.sendRedirect(req.getContextPath() + "/adverts");
         } else {
             req.setAttribute("error", "Неверный email или пароль");
             req.getRequestDispatcher("login.jsp").forward(req, resp);

@@ -27,7 +27,7 @@ public class RegServlet extends HttpServlet {
             HbmStore.instOf().addDriver(driver);
             HttpSession sc = req.getSession();
             sc.setAttribute("user", driver);
-            resp.sendRedirect(req.getContextPath() + "/");
+            resp.sendRedirect(req.getContextPath() + "/adverts");
         } else {
             req.setAttribute("error", "User with this email already exists");
             req.getRequestDispatcher("login.jsp").forward(req, resp);

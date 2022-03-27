@@ -29,6 +29,7 @@
             const password = $('#inputPassword').val();
             const name = $('#inputName').val();
             const confirmPassword = $('#inputConfirmPassword').val();
+            const phoneNumber = $('#inputPhoneNumber').val();
 
             if (name === '') {
                 alert('Please enter your name.');
@@ -36,6 +37,10 @@
             }
             if (email === '') {
                 alert('Please enter your email.');
+                return false;
+            }
+            if (phoneNumber === '') {
+                alert('Please enter your phone number.');
                 return false;
             }
             if (password === '') {

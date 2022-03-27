@@ -22,7 +22,6 @@
     <script src="scripts.js"></script>
     <title>CARS</title>
 </head>
-
 <body>
 
 <div class="container">

@@ -33,8 +33,60 @@
     </c:if>
     <a style="float: right" class="nav-link" href="<%=request.getContextPath()%>/logout.do"> <c:out value="${user.name}"/>  | Log out</a>
 
-
 </div>
+
+<br>
+
+<c:if test="${user.name != null}">
+<div class="container pt-3">
+    <div class="row">
+        <div class="card" style="width: 100%">
+            <div class="card-header">
+                Adverts
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Car</th>
+                        <th scope="col">Type engine</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Phone number</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${adverts}" var="advert">
+                        <tr>
+                            <td>
+                                <c:out value="${advert.car.name}"/>
+                            </td>
+                            <td>
+                                <c:out value="${advert.car.engine.name}"/>
+                            </td>
+                            <td>
+                                <c:out value="${advert.description}"/>
+                            </td>
+                            <td>
+                                <c:if test="${advert.active == true}">
+                                    <c:out value="продается"/>
+                                </c:if>
+                                <c:if test="${advert.active != true}">
+                                    <c:out value="продана"/>
+                                </c:if>
+                            </td>
+                            <td>
+                                <c:out value="${advert.ownerPhoneNumber}"/>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</c:if>
 
 </body>
 </html>

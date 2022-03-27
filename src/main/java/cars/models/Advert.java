@@ -15,6 +15,7 @@ public class Advert {
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
     private String description;
+    private String ownerPhoneNumber;
 
     public Advert() {
 
@@ -59,5 +60,17 @@ public class Advert {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean changeStatus() {
+        return !active;
+    }
+
+    public String getOwnerPhoneNumber() {
+        return ownerPhoneNumber;
+    }
+
+    public void setOwnerPhoneNumber(String ownerPhoneNumber) {
+        this.ownerPhoneNumber = ownerPhoneNumber;
     }
 }

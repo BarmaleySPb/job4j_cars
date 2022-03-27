@@ -16,4 +16,5 @@ public interface Store extends AutoCloseable {
     Engine findEngineById(int id);
     List<Advert> findAllAdvert();
     List<Engine> findAllEngine();
+    Driver findDriverByName(String name);
 }

@@ -19,19 +19,3 @@ function validateAdvert() {
     }
     return true;
 }
-
-function addAdvert() {
-    $.ajax({
-        type: 'POST',
-        url: 'http://localhost:8080/cars/addadvert',
-        data: {
-            description: $('#inputCarDescription').val(),
-            model: $('#inputCarModel').val(),
-            engine: $('#inputCarEngine').val()
-        },
-        dataType: 'json'
-    }).done(
-    ).fail(function (err) {
-        console.log(err);
-    });
-}
