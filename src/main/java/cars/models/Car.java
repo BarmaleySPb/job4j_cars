@@ -26,7 +26,7 @@ public class Car {
 
     }
 
-    public Car of(String name) {
+    public static Car of(String name) {
         Car car = new Car();
         car.name = name;
         return car;
@@ -62,6 +62,10 @@ public class Car {
 
     public void setDrivers(Set<Driver> drivers) {
         this.drivers = drivers;
+    }
+
+    public void addDriver(Driver driver) {
+        drivers.add(driver);
     }
 
     @Override

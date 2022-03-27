@@ -4,4 +4,39 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>AuthServlet</servlet-name>
+    <servlet-class>cars.servlets.AuthServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RegServlet</servlet-name>
+    <servlet-class>cars.servlets.RegServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>cars.servlets.LogOutServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddAdvertServlet</servlet-name>
+    <servlet-class>cars.servlets.AddAdvertServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AuthServlet</servlet-name>
+    <url-pattern>/auth.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegServlet</servlet-name>
+    <url-pattern>/reg.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddAdvertServlet</servlet-name>
+    <url-pattern>/addadvert</url-pattern>
+  </servlet-mapping>
+
 </web-app>
