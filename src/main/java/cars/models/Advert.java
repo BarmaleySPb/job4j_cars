@@ -14,6 +14,7 @@ public class Advert {
     private boolean active;
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
+    private String creator;
     private String description;
     private String ownerPhoneNumber;
 
@@ -72,6 +73,14 @@ public class Advert {
 
     public boolean changeStatus() {
         return !active;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
 
     public String getOwnerPhoneNumber() {

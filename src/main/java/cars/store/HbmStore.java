@@ -97,6 +97,15 @@ public class HbmStore implements Store {
         return this.tx(session -> session.get(CarBody.class, id));
     }
 
+    @Override
+    public void changeStatus(int id) {
+        this.tx(session -> {
+            Advert advert = session.get(Advert.class, id);
+            advert.setActive(advert.changeStatus());
+            return null;
+        });
+    }
+
     private <T> T tx(final Function<Session, T> command) {
         final Session session = sf.openSession();
         final Transaction tx = session.beginTransaction();

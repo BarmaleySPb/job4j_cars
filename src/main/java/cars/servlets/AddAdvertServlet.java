@@ -23,6 +23,7 @@ public class AddAdvertServlet extends HttpServlet {
         HbmStore.instOf().addCar(car);
         Advert advert = Advert.of(car, carDescription);
         advert.setOwnerPhoneNumber(HbmStore.instOf().findDriverByName(driver.getName()).getPhoneNumber());
+        advert.setCreator(driver.getName());
         HbmStore.instOf().addAdvert(advert);
         resp.sendRedirect(req.getContextPath() + "/adverts");
     }

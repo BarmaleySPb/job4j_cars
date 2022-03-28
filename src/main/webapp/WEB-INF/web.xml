@@ -33,6 +33,10 @@
     <servlet-name>UploadPhotoServlet</servlet-name>
     <servlet-class>cars.servlets.UploadPhotoServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ChangeStatusServlet</servlet-name>
+    <servlet-class>cars.servlets.ChangeStatusServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>AuthServlet</servlet-name>
@@ -61,6 +65,10 @@
   <servlet-mapping>
     <servlet-name>UploadPhotoServlet</servlet-name>
     <url-pattern>/uploadphoto</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChangeStatusServlet</servlet-name>
+    <url-pattern>/changestatus</url-pattern>
   </servlet-mapping>
 
 </web-app>
