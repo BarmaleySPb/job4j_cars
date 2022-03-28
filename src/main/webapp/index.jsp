@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ taglib prefix="с" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -48,6 +49,8 @@
                 <table class="table">
                     <thead>
                     <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Photo</th>
                         <th scope="col">Car</th>
                         <th scope="col">Type engine</th>
                         <th scope="col">Body type</th>
@@ -59,6 +62,18 @@
                     <tbody>
                     <c:forEach items="${adverts}" var="advert">
                         <tr>
+                            <td>
+                                <a href='<c:url value="/uploadphoto.jsp?id=${advert.id}"/>'>
+                                    <button type="submit" class="btn btn-success">Add photo</button>
+                                </a>
+                                <a>
+                                    <button type="submit" class="btn btn-success" onclick="">Change status</button>
+                                </a>
+                            </td>
+                            <td>
+                                <img src="<c:url value='/downloadphoto?name=${advert.id}'/>" width="150px"
+                                     height="90px"/>
+                            </td>
                             <td>
                                 <c:out value="${advert.car.name}"/>
                             </td>
