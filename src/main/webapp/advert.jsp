@@ -1,5 +1,6 @@
 <%@ page import="cars.store.HbmStore" %>
 <%@ page import="cars.models.Engine" %>
+<%@ page import="cars.models.CarBody" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 
@@ -46,6 +47,16 @@
 
                             <% for (Engine engine : HbmStore.instOf().findAllEngine()) { %>
                             <option value="<%=engine.getId()%>"><%=engine.getName()%></option>
+                            <% } %>
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select body type</label>
+                        <select class="form-control" name="carBody" id="carBody">
+
+                            <% for (CarBody body : HbmStore.instOf().findAllCarBody()) { %>
+                            <option value="<%=body.getId()%>"><%=body.getName()%></option>
                             <% } %>
 
                         </select>

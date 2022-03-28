@@ -1,9 +1,6 @@
 package cars.store;
 
-import cars.models.Advert;
-import cars.models.Car;
-import cars.models.Driver;
-import cars.models.Engine;
+import cars.models.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -77,6 +74,13 @@ public class HbmStore implements Store {
     }
 
     @Override
+    public List<CarBody> findAllCarBody() {
+        return this.tx(
+                session -> session.createQuery("from CarBody").list()
+        );
+    }
+
+    @Override
     public Driver findDriverByName(String name) {
         return (Driver) this.tx(session -> session.createQuery("from Driver i where i.name = :key")
                 .setParameter("key", name)
@@ -86,6 +90,11 @@ public class HbmStore implements Store {
     @Override
     public Engine findEngineById(int id) {
         return this.tx(session -> session.get(Engine.class, id));
+    }
+
+    @Override
+    public CarBody findCarBodyById(int id) {
+        return this.tx(session -> session.get(CarBody.class, id));
     }
 
     private <T> T tx(final Function<Session, T> command) {

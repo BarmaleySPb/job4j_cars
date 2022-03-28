@@ -22,5 +22,6 @@
         <mapping class="cars.models.Driver" />
         <mapping class="cars.models.Engine" />
         <mapping class="cars.models.Advert" />
+        <mapping class="cars.models.CarBody" />
     </session-factory>
 </hibernate-configuration>

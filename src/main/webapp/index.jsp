@@ -50,6 +50,7 @@
                     <tr>
                         <th scope="col">Car</th>
                         <th scope="col">Type engine</th>
+                        <th scope="col">Body type</th>
                         <th scope="col">Description</th>
                         <th scope="col">Status</th>
                         <th scope="col">Phone number</th>
@@ -63,6 +64,9 @@
                             </td>
                             <td>
                                 <c:out value="${advert.car.engine.name}"/>
+                            </td>
+                            <td>
+                                <c:out value="${advert.car.carBody.name}"/>
                             </td>
                             <td>
                                 <c:out value="${advert.description}"/>

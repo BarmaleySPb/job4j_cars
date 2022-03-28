@@ -1,9 +1,6 @@
 package cars.store;
 
-import cars.models.Advert;
-import cars.models.Car;
-import cars.models.Driver;
-import cars.models.Engine;
+import cars.models.*;
 
 import java.util.List;
 
@@ -14,7 +11,9 @@ public interface Store extends AutoCloseable {
     Car addCar(Car car);
     Driver findDriverByEmail(String email);
     Engine findEngineById(int id);
+    CarBody findCarBodyById(int id);
     List<Advert> findAllAdvert();
     List<Engine> findAllEngine();
+    List<CarBody> findAllCarBody();
     Driver findDriverByName(String name);
 }

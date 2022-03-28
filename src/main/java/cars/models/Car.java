@@ -15,6 +15,9 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "engine_id", foreignKey = @ForeignKey(name = "ENGINE_ID_FK"))
     private Engine engine;
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "carbody_id", foreignKey = @ForeignKey(name = "CARBODY_ID_FK"))
+    private CarBody carBody;
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "history_owner", joinColumns = {
             @JoinColumn(name = "driver_id", nullable = false, updatable = false)},
@@ -66,6 +69,14 @@ public class Car {
 
     public void addDriver(Driver driver) {
         drivers.add(driver);
+    }
+
+    public CarBody getCarBody() {
+        return carBody;
+    }
+
+    public void setCarBody(CarBody carBody) {
+        this.carBody = carBody;
     }
 
     @Override

@@ -1,9 +1,6 @@
 package cars.servlets;
 
-import cars.models.Advert;
-import cars.models.Car;
-import cars.models.Driver;
-import cars.models.Engine;
+import cars.models.*;
 import cars.store.HbmStore;
 
 import javax.servlet.http.HttpServlet;
@@ -17,10 +14,12 @@ public class AddAdvertServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String carDescription = req.getParameter("carDescription");
         Engine engine = HbmStore.instOf().findEngineById(Integer.parseInt(req.getParameter("carEngine")));
+        CarBody carBody = HbmStore.instOf().findCarBodyById(Integer.parseInt(req.getParameter("carBody")));
         Car car = Car.of(req.getParameter("carModel"));
         Driver driver = (Driver) req.getSession().getAttribute("user");
         car.addDriver(driver);
         car.setEngine(engine);
+        car.setCarBody(carBody);
         HbmStore.instOf().addCar(car);
         Advert advert = Advert.of(car, carDescription);
         advert.setOwnerPhoneNumber(HbmStore.instOf().findDriverByName(driver.getName()).getPhoneNumber());
