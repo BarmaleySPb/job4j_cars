@@ -24,7 +24,7 @@ public class RegServlet extends HttpServlet {
             driver.setEmail(email);
             driver.setPassword(password);
             driver.setPhoneNumber(phoneNumber);
-            HbmStore.instOf().addDriver(driver);
+            HbmStore.instOf().add(driver);
             HttpSession sc = req.getSession();
             sc.setAttribute("user", driver);
             resp.sendRedirect(req.getContextPath() + "/adverts");

@@ -11,11 +11,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="scripts.js"></script>
     <title>CARS</title>
@@ -31,7 +34,8 @@
     <c:if test="${user.name != null}">
         <a style="float: left" class="nav-link" href="<%=request.getContextPath()%>/advert.jsp">Add advert</a>
     </c:if>
-    <a style="float: right" class="nav-link" href="<%=request.getContextPath()%>/logout.do"> <c:out value="${user.name}"/>  | Log out</a>
+    <a style="float: right" class="nav-link" href="<%=request.getContextPath()%>/logout.do">
+        <c:out value="${user.name}"/>  | Log out</a>
 
 </div>
 
@@ -39,7 +43,7 @@
 
 <c:if test="${user.name != null}">
 <div class="container pt-3">
-    <div class="row">
+    <div class="row justify-content-md-center">
         <div class="card" style="width: 100%">
             <div class="card-header">
                 Adverts
@@ -56,6 +60,8 @@
                         <th scope="col">Status</th>
                         <th scope="col">Phone number</th>
                         <th scope="col">Owner</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
                     </thead>
@@ -95,10 +101,21 @@
                             <td>
                                 <c:if test="${advert.creator == user.name}">
                                     <a href='<c:url value="/uploadphoto.jsp?id=${advert.id}"/>'>
-                                        <button type="submit" class="btn btn-success">Add photo</button>
+                                        <button type="submit" class="btn btn-success">photo</button>
                                     </a>
+                                </c:if>
+                            </td>
+                            <td>
+                                <c:if test="${advert.creator == user.name}">
                                     <a href='<c:url value="/changestatus?id=${advert.id}"/>'>
-                                        <button type="submit" class="btn btn-success">Change status</button>
+                                        <button type="submit" class="btn btn-success">status</button>
+                                    </a>
+                                </c:if>
+                            </td>
+                            <td>
+                                <c:if test="${advert.creator == user.name}">
+                                    <a href='<c:url value="/deleteadvert?id=${advert.id}"/>'>
+                                        <button type="submit" class="btn btn-success">delete</button>
                                     </a>
                                 </c:if>
                             </td>

@@ -37,6 +37,10 @@
     <servlet-name>ChangeStatusServlet</servlet-name>
     <servlet-class>cars.servlets.ChangeStatusServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DeleteAdvertServlet</servlet-name>
+    <servlet-class>cars.servlets.DeleteAdvertServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>AuthServlet</servlet-name>
@@ -69,6 +73,10 @@
   <servlet-mapping>
     <servlet-name>ChangeStatusServlet</servlet-name>
     <url-pattern>/changestatus</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteAdvertServlet</servlet-name>
+    <url-pattern>/deleteadvert</url-pattern>
   </servlet-mapping>
 
 </web-app>

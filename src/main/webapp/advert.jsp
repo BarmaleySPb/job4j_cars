@@ -45,7 +45,7 @@
                         <label>Select engine type</label>
                         <select class="form-control" name="carEngine" id="carEngine">
 
-                            <% for (Engine engine : HbmStore.instOf().findAllEngine()) { %>
+                            <% for (Engine engine : HbmStore.instOf().findAll(Engine.class)) { %>
                             <option value="<%=engine.getId()%>"><%=engine.getName()%></option>
                             <% } %>
 
@@ -55,7 +55,7 @@
                         <label>Select body type</label>
                         <select class="form-control" name="carBody" id="carBody">
 
-                            <% for (CarBody body : HbmStore.instOf().findAllCarBody()) { %>
+                            <% for (CarBody body : HbmStore.instOf().findAll(CarBody.class)) { %>
                             <option value="<%=body.getId()%>"><%=body.getName()%></option>
                             <% } %>
 

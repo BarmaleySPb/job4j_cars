@@ -2,6 +2,7 @@ package cars.models;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table (name = "adverts")
@@ -12,6 +13,7 @@ public class Advert {
     @OneToOne
     private Car car;
     private boolean active;
+    private boolean photo;
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
     private String creator;
@@ -89,5 +91,34 @@ public class Advert {
 
     public void setOwnerPhoneNumber(String ownerPhoneNumber) {
         this.ownerPhoneNumber = ownerPhoneNumber;
+    }
+
+    public boolean isPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(boolean photo) {
+        this.photo = photo;
+    }
+
+    public boolean changePhotoStatus() {
+        return !photo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Advert advert = (Advert) o;
+        return id == advert.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

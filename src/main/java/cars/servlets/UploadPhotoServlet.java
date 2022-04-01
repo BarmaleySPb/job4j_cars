@@ -1,5 +1,6 @@
 package cars.servlets;
 
+import cars.models.Advert;
 import cars.store.HbmStore;
 import cars.utils.GetProperties;
 import org.apache.commons.fileupload.FileItem;
@@ -43,6 +44,8 @@ public class UploadPhotoServlet extends HttpServlet {
             for (FileItem item : items) {
                 if (!item.isFormField()) {
                     File file = new File(folder + File.separator + id);
+                    Advert advert = HbmStore.instOf().findById(Advert.class, Integer.valueOf(id));
+                    advert.setPhoto(advert.changePhotoStatus());
                     try (FileOutputStream out = new FileOutputStream(file)) {
                         out.write(item.getInputStream().readAllBytes());
                     }

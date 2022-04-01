@@ -5,16 +5,11 @@ import cars.models.*;
 import java.util.List;
 
 public interface Store extends AutoCloseable {
-    Driver addDriver(Driver driver);
-    Advert addAdvert(Advert advert);
-    Engine addEngine(Engine engine);
-    Car addCar(Car car);
+    <T> T add(T model);
+    <T> List<T> findAll(Class<T> model);
+    <T> T findById(Class<T> model, Integer id);
+    <T> void delete(T model);
     Driver findDriverByEmail(String email);
-    Engine findEngineById(int id);
-    CarBody findCarBodyById(int id);
-    List<Advert> findAllAdvert();
-    List<Engine> findAllEngine();
-    List<CarBody> findAllCarBody();
     Driver findDriverByName(String name);
     void changeStatus(int id);
 }

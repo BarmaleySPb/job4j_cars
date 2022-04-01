@@ -29,27 +29,9 @@ public class HbmStore implements Store {
     }
 
     @Override
-    public Driver addDriver(Driver driver) {
-        this.tx(session -> session.save(driver));
-        return driver;
-    }
-
-    @Override
-    public Advert addAdvert(Advert advert) {
-        this.tx(session -> session.save(advert));
-        return advert;
-    }
-
-    @Override
-    public Engine addEngine(Engine engine) {
-        this.tx(session -> session.save(engine));
-        return engine;
-    }
-
-    @Override
-    public Car addCar(Car car) {
-        this.tx(session -> session.save(car));
-        return car;
+    public <T> T add(T model) {
+        this.tx(session -> session.save(model));
+        return model;
     }
 
     @Override
@@ -60,24 +42,13 @@ public class HbmStore implements Store {
     }
 
     @Override
-    public List<Advert> findAllAdvert() {
-        return this.tx(
-                session -> session.createQuery("from Advert").list()
-        );
+    public <T> List<T> findAll(Class<T> model) {
+        return tx(session -> session.createQuery("from " + model.getName(), model).list());
     }
 
     @Override
-    public List<Engine> findAllEngine() {
-        return this.tx(
-                session -> session.createQuery("from Engine").list()
-        );
-    }
-
-    @Override
-    public List<CarBody> findAllCarBody() {
-        return this.tx(
-                session -> session.createQuery("from CarBody").list()
-        );
+    public <T> T findById(Class<T> model, Integer id) {
+        return tx(session -> session.get(model, id));
     }
 
     @Override
@@ -88,21 +59,19 @@ public class HbmStore implements Store {
     }
 
     @Override
-    public Engine findEngineById(int id) {
-        return this.tx(session -> session.get(Engine.class, id));
-    }
-
-    @Override
-    public CarBody findCarBodyById(int id) {
-        return this.tx(session -> session.get(CarBody.class, id));
-    }
-
-    @Override
     public void changeStatus(int id) {
         this.tx(session -> {
             Advert advert = session.get(Advert.class, id);
             advert.setActive(advert.changeStatus());
             return null;
+        });
+    }
+
+    @Override
+    public <T> void delete(T model) {
+        tx(session -> {
+            session.delete(model);
+            return true;
         });
     }
 
