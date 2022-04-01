@@ -35,7 +35,7 @@
                 Add advert
             </div>
             <div class="card-body">
-                <form action="<%=request.getContextPath()%>/addadvert" method="post">
+                <form action="<%=request.getContextPath()%>/adverts" method="post">
                     <div class="form-group">
                         <label>Car Model</label>
                         <input type="text" class="form-control" name="carModel" id="inputCarModel"

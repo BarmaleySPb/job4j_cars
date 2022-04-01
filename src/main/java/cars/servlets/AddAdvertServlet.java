@@ -3,6 +3,7 @@ package cars.servlets;
 import cars.models.*;
 import cars.store.HbmStore;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,5 +27,11 @@ public class AddAdvertServlet extends HttpServlet {
         advert.setCreator(driver.getName());
         HbmStore.instOf().add(advert);
         resp.sendRedirect(req.getContextPath() + "/adverts");
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("adverts", HbmStore.instOf().findAll(Advert.class));
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 }
