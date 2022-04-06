@@ -68,6 +68,15 @@ public class HbmStore implements Store {
     }
 
     @Override
+    public void changePhotoStatus(int id) {
+        this.tx(session -> {
+            Advert advert = session.get(Advert.class, id);
+            advert.setPhoto(advert.changePhotoStatus());
+            return null;
+        });
+    }
+
+    @Override
     public <T> void delete(T model) {
         tx(session -> {
             session.delete(model);

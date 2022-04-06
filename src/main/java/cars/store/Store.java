@@ -12,4 +12,5 @@ public interface Store extends AutoCloseable {
     Driver findDriverByEmail(String email);
     Driver findDriverByName(String name);
     void changeStatus(int id);
+    void changePhotoStatus(int id);
 }
