@@ -8,8 +8,8 @@ import java.util.Objects;
 public class CarBody {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    String name;
+    private int id;
+    private String name;
 
     public CarBody() {
 
