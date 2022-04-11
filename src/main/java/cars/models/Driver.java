@@ -4,19 +4,15 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table (name = "drivers")
+@Table(name = "drivers")
 public class Driver {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String password;
     private String email;
     private String phoneNumber;
-
-    public Driver() {
-
-    }
 
     public static Driver of(String name) {
         Driver driver = new Driver();

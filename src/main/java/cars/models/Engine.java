@@ -4,18 +4,14 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table (name = "engines")
+@Table(name = "engines")
 public class Engine {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
 
-    public Engine() {
-
-    }
-
-    public static Engine of(String name) {
+   public static Engine of(String name) {
         Engine engine = new Engine();
         engine.name = name;
         return engine;

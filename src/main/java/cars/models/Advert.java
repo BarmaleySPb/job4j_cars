@@ -5,12 +5,12 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table (name = "adverts")
+@Table(name = "adverts")
 public class Advert {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Car car;
     private boolean active;
     private boolean photo;
@@ -19,10 +19,6 @@ public class Advert {
     private String creator;
     private String description;
     private String ownerPhoneNumber;
-
-    public Advert() {
-
-    }
 
     public static Advert of(Car car, String description) {
         Advert advert = new Advert();

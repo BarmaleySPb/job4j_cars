@@ -11,10 +11,6 @@ public class CarBody {
     private int id;
     private String name;
 
-    public CarBody() {
-
-    }
-
     public static CarBody of(String name) {
         CarBody carBody = new CarBody();
         carBody.name = name;
